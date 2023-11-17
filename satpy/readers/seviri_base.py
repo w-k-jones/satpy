@@ -486,7 +486,7 @@ def get_cds_time(days, msecs):
 
 def add_scanline_acq_time(dataset, acq_time):
     """Add scanline acquisition time to the given dataset."""
-    dataset.coords["acq_time"] = ("y", acq_time)
+    dataset.coords["acq_time"] = ("y", acq_time.astype("datetime64[ns]"))
     dataset.coords["acq_time"].attrs[
         "long_name"] = "Mean scanline acquisition time"
 
